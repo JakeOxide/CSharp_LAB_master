@@ -1,0 +1,8 @@
+C:\Users\Jake\Documents\GitHub\CSharp_LAB_master\Lab_3_Classes and Objects\AreaPerimeter\AreaPerimeter\bin\Debug\AreaPerimeter.exe.config
+C:\Users\Jake\Documents\GitHub\CSharp_LAB_master\Lab_3_Classes and Objects\AreaPerimeter\AreaPerimeter\bin\Debug\AreaPerimeter.exe
+C:\Users\Jake\Documents\GitHub\CSharp_LAB_master\Lab_3_Classes and Objects\AreaPerimeter\AreaPerimeter\bin\Debug\AreaPerimeter.pdb
+C:\Users\Jake\Documents\GitHub\CSharp_LAB_master\Lab_3_Classes and Objects\AreaPerimeter\AreaPerimeter\obj\Debug\AreaPerimeter.csproj.AssemblyReference.cache
+C:\Users\Jake\Documents\GitHub\CSharp_LAB_master\Lab_3_Classes and Objects\AreaPerimeter\AreaPerimeter\obj\Debug\AreaPerimeter.csproj.SuggestedBindingRedirects.cache
+C:\Users\Jake\Documents\GitHub\CSharp_LAB_master\Lab_3_Classes and Objects\AreaPerimeter\AreaPerimeter\obj\Debug\AreaPerimeter.csproj.CoreCompileInputs.cache
+C:\Users\Jake\Documents\GitHub\CSharp_LAB_master\Lab_3_Classes and Objects\AreaPerimeter\AreaPerimeter\obj\Debug\AreaPerimeter.exe
+C:\Users\Jake\Documents\GitHub\CSharp_LAB_master\Lab_3_Classes and Objects\AreaPerimeter\AreaPerimeter\obj\Debug\AreaPerimeter.pdb
