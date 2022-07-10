@@ -1,6 +1,6 @@
 ﻿namespace AreaPerimeter
 {
-    class Rectangle
+    class Rectangle : Shape
     {
         public double length { get; set; }
 
@@ -12,13 +12,13 @@
             this.width = width;
         }
 
-        public double calculateArea()
+        public override double calculateArea()
         {
             double area = length * width;
             return area;
         }
 
-        public double calculatePerimeter()
+        public override double calculatePerimeter()
         {
             double perimeter = 2 * (length + width);
             return perimeter;

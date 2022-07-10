@@ -1,6 +1,6 @@
 ﻿namespace AreaPerimeter
 {
-    class Circle
+    class Circle : Shape
     {
         private static float PI = 3.14f;
         public double radius { get; set; }
@@ -10,13 +10,13 @@
             this.radius = radius;
         }
 
-        public double calculateArea()
+        public override double calculateArea()
         {
             double area = (PI * (radius * radius));
             return area;
         }
 
-        public double calculatePerimeter()
+        public override double calculatePerimeter()
         {
             double perimeter = (2 * PI * radius);
             return perimeter;
