@@ -15,6 +15,7 @@ namespace ShopApp
         public ShopApp()
         {
             InitializeComponent();
+            date_dateOfEntry.MinDate = DateTime.Now;
         }
 
         public bool charCount { get; set; }
@@ -54,39 +55,65 @@ namespace ShopApp
         {
 
             Validator validate = new Validator();
-            bool check = false, check2 = false;
+            bool check1 = false, check2 = false, check3 = false, check4 = false, check5 = false;
             if (checkBoxes())
             {
-                check = validate.ValidateName(txt_itemName.Text);
-                check = validate.ValidateNumber(txt_entryNumber.Text, 1000000);
-                check = validate.ValidateNumber(txt_inventoryNumber.Text, 10000);
-                check = validate.ValidateNumber(txt_itemCount.Text, 100);
-                check2 = validate.ValidatePrice(txt_itemPrice.Text, 1000000.00);
-
-                decimal checkPrice = decimal.Parse(txt_itemPrice.Text, System.Globalization.NumberStyles.AllowDecimalPoint);
-                decimal netPrice = Math.Round(checkPrice, 2);
-    
-                if (check)
+                    check1 = validate.ValidateName(txt_itemName.Text); //Char.ToUpper(nameChar[1]) if dataClass and Char Array is used
+                    check2 = validate.ValidateNumber(txt_entryNumber.Text, 1000000);
+                    check3 = validate.ValidateNumber(txt_inventoryNumber.Text, 10000);
+                    check4 = validate.ValidateNumber(txt_itemCount.Text, 500);
+                double retVal;
+                bool isNum = Double.TryParse(txt_itemPrice.Text, System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out retVal);
+                if(isNum)
                 {
-                    MessageBox.Show("This is a valid entry " + netPrice);
-                    if (!check2)
-                    {
-                        MessageBox.Show("Invalid Entry at Check2 1d" + checkPrice);
-                    }
+                    check5 = validate.ValidatePrice(txt_itemPrice.Text);
+                }
+                else
+                {
+                    check5 = false;
+                }
+
+
+    
+                if (check1 && check2 && check3 && check4 && check5)
+                {                
+                    decimal checkPrice = decimal.Parse(txt_itemPrice.Text, System.Globalization.NumberStyles.AllowDecimalPoint);
+                    decimal netPrice = Math.Round(checkPrice, 2);
+                    string[] messages = new string[] {"This is a valid entry \n \n",
+                    "Item Name      \t \n" + txt_itemName.Text + "\n \n",
+                    "Entry Number   \t \n" + txt_entryNumber.Text + "\n \n",
+                    "Inventory No   \t \n" + txt_inventoryNumber.Text + "\n \n",
+                    "Item Count     \t \n" + txt_itemCount.Text + "\n \n",
+                    "Price          \t \n" + netPrice + "\n \n",
+                    "Date of Entry  \t \n" + date_dateOfEntry.Value};
+                    var message = string.Join(Environment.NewLine, messages);
+                    MessageBox.Show(message);
+                    btn_clear.PerformClick();
                 }
                 else
                 {
                     MessageBox.Show("Invalid Entry " + txt_entryNumber.Text);
-                    if (!check2)
-                    {
-                        MessageBox.Show("Invalid Entry at Check2 2d" + checkPrice);
-                    }
                 }
             }
             else
             {
                 MessageBox.Show("Please fill the empty fields");
             }
+        }
+
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+            txt_entryNumber.Text = "";
+            txt_inventoryNumber.Text = "";
+            txt_itemCount.Text = "";
+            txt_itemName.Text = "";
+            txt_itemPrice.Text = "";
+            date_dateOfEntry.Value = date_dateOfEntry.MinDate;
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 

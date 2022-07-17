@@ -8,7 +8,6 @@ namespace ShopApp
 {
     class Validator
     {
-        
         public bool ValidateName(string name)
         {
             bool result = false;
@@ -34,6 +33,10 @@ namespace ShopApp
                         }
                     }
                 }
+                else
+                {
+                    return false;
+                }
             }
             return result;
         }
@@ -42,23 +45,7 @@ namespace ShopApp
         {
             bool result = false;
 
-            //Number
-            int[] itemNum = number.ToString().ToCharArray().Select(Convert.ToInt32).ToArray();
-            bool checker = false;
-            foreach (int x in itemNum)
-            {
-                if (x >= 0 | x <= 9)
-                {
-                    result = true;
-                    checker = true;
-                }
-                else
-                {
-                    checker = false;
-                    return false;
-                }
-            }
-            if (checker)
+            if (CheckString(number))
             {
                 int entryNum = Convert.ToInt32(number);
                 if (entryNum >= 1 && entryNum <= limit)
@@ -78,23 +65,27 @@ namespace ShopApp
             return result;
         }
 
-        public bool ValidatePrice(string price, double limit)
+        private bool CheckString(string number)
+        {
+            return number.All(char.IsDigit); 
+        }
+
+        public bool ValidatePrice(string price)
         {
             bool result = false;
             // Price
             decimal checkPrice;
-            if (!(decimal.TryParse(price, out checkPrice))
+                if (!(decimal.TryParse(price, out checkPrice))
                 && checkPrice >= 0
                 && checkPrice * 100 == Math.Floor(checkPrice * 100))
-            {
-                result = false;
-            }
-            else
-            {
-                result = true;
-            }
-           
-            return result;
+                {
+                    return false;
+                }
+                else
+                {
+                    result = true;
+                }
+        return result;
         }
 
     }

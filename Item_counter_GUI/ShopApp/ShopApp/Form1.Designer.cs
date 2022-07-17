@@ -32,7 +32,7 @@
             this.txt_itemName = new System.Windows.Forms.TextBox();
             this.txt_itemCount = new System.Windows.Forms.TextBox();
             this.txt_inventoryNumber = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.date_dateOfEntry = new System.Windows.Forms.DateTimePicker();
             this.txt_entryNumber = new System.Windows.Forms.TextBox();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_clear = new System.Windows.Forms.Button();
@@ -54,7 +54,7 @@
             this.panel_main.Controls.Add(this.txt_itemCount);
             this.panel_main.Controls.Add(this.txt_itemPrice);
             this.panel_main.Controls.Add(this.txt_inventoryNumber);
-            this.panel_main.Controls.Add(this.dateTimePicker1);
+            this.panel_main.Controls.Add(this.date_dateOfEntry);
             this.panel_main.Controls.Add(this.txt_entryNumber);
             this.panel_main.Controls.Add(this.btn_cancel);
             this.panel_main.Controls.Add(this.btn_clear);
@@ -97,14 +97,14 @@
             this.txt_inventoryNumber.Size = new System.Drawing.Size(193, 24);
             this.txt_inventoryNumber.TabIndex = 11;
             // 
-            // dateTimePicker1
+            // date_dateOfEntry
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(250, 79);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePicker1.TabIndex = 10;
+            this.date_dateOfEntry.CalendarFont = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_dateOfEntry.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_dateOfEntry.Location = new System.Drawing.Point(250, 79);
+            this.date_dateOfEntry.Name = "date_dateOfEntry";
+            this.date_dateOfEntry.Size = new System.Drawing.Size(200, 21);
+            this.date_dateOfEntry.TabIndex = 10;
             // 
             // txt_entryNumber
             // 
@@ -125,6 +125,7 @@
             this.btn_cancel.TabIndex = 8;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = false;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_clear
             // 
@@ -136,6 +137,7 @@
             this.btn_clear.TabIndex = 7;
             this.btn_clear.Text = "Clear Screen";
             this.btn_clear.UseVisualStyleBackColor = false;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // btn_add
             // 
@@ -241,7 +243,7 @@
         private System.Windows.Forms.TextBox txt_itemName;
         private System.Windows.Forms.TextBox txt_itemCount;
         private System.Windows.Forms.TextBox txt_inventoryNumber;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker date_dateOfEntry;
         private System.Windows.Forms.TextBox txt_entryNumber;
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Button btn_clear;
