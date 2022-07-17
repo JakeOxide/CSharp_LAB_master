@@ -17,10 +17,11 @@ namespace ShopApp
             InitializeComponent();
         }
 
+        public bool charCount { get; set; }
+
         private bool checkBoxes()
         {
-            bool charCount = false;
-
+            charCount = false;
             if (txt_entryNumber.Text.Length > 0)
                 charCount = true;
             else
@@ -51,19 +52,35 @@ namespace ShopApp
 
         private void btn_add_Click(object sender, EventArgs e)
         {
+
+            Validator validate = new Validator();
+            bool check = false, check2 = false;
             if (checkBoxes())
             {
-                DataClass data = new DataClass();
-                data.itemName = txt_itemName.Text;
-                data.itemNumber = txt_entryNumber.Text;
-                bool check = data.validateData();
+                check = validate.ValidateName(txt_itemName.Text);
+                check = validate.ValidateNumber(txt_entryNumber.Text, 1000000);
+                check = validate.ValidateNumber(txt_inventoryNumber.Text, 10000);
+                check = validate.ValidateNumber(txt_itemCount.Text, 100);
+                check2 = validate.ValidatePrice(txt_itemPrice.Text, 1000000.00);
+
+                decimal checkPrice = decimal.Parse(txt_itemPrice.Text, System.Globalization.NumberStyles.AllowDecimalPoint);
+                decimal netPrice = Math.Round(checkPrice, 2);
+    
                 if (check)
                 {
-                    MessageBox.Show("This is a valid entry " + txt_entryNumber.Text);
+                    MessageBox.Show("This is a valid entry " + netPrice);
+                    if (!check2)
+                    {
+                        MessageBox.Show("Invalid Entry at Check2 1d" + checkPrice);
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Invalid Entry " + txt_entryNumber.Text);
+                    if (!check2)
+                    {
+                        MessageBox.Show("Invalid Entry at Check2 2d" + checkPrice);
+                    }
                 }
             }
             else
@@ -73,71 +90,5 @@ namespace ShopApp
         }
     }
 
-    class DataClass
-    {
-        public string itemName { get; set; }
-        public string itemNumber { get; set; }
-        public string  inventoryNumber { get; set; }
-        public string itemCount { get; set; }
-        public double itemPrice { get; set; }
-
-        public bool validateData()
-        {
-            bool result = false;
-
-            // Name
-            char[] nameChar = itemName.Trim().ToCharArray();
-            if (nameChar.Length > 2)
-            {
-                foreach (char x in nameChar)
-                {
-                    if (x >= 'a' & x <= 'z' || x >= 'A' & x <= 'Z')
-                    {
-                        result = true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
-
-            //Number
-            int[] itemNum = itemNumber.ToString().ToCharArray().Select(Convert.ToInt32).ToArray();
-            bool checker = false;
-                foreach (int x in itemNum)
-                    {
-                        if (x >= 0 | x <= 9)
-                        {
-                            result = true;
-                            checker = true;
-                        }
-                        else
-                        {
-                            checker = false;
-                            return false;
-                        }
-                    }
-            if (checker)
-            {
-                int entryNum = Convert.ToInt32(itemNumber);
-                if (entryNum >= 1 && entryNum <= 1000)
-                {
-                    result = true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-
-            return result;
-        }
-
-    }
 
 }

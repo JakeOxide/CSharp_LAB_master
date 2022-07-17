@@ -31,7 +31,6 @@
             this.panel_main = new System.Windows.Forms.Panel();
             this.txt_itemName = new System.Windows.Forms.TextBox();
             this.txt_itemCount = new System.Windows.Forms.TextBox();
-            this.txt_itemPrice = new System.Windows.Forms.TextBox();
             this.txt_inventoryNumber = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txt_entryNumber = new System.Windows.Forms.TextBox();
@@ -44,6 +43,7 @@
             this.lbl_inventoryNumber = new System.Windows.Forms.Label();
             this.lbl_date = new System.Windows.Forms.Label();
             this.lbl_entryNumber = new System.Windows.Forms.Label();
+            this.txt_itemPrice = new System.Windows.Forms.TextBox();
             this.panel_main.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,15 +87,6 @@
             this.txt_itemCount.Name = "txt_itemCount";
             this.txt_itemCount.Size = new System.Drawing.Size(122, 24);
             this.txt_itemCount.TabIndex = 14;
-            // 
-            // txt_itemPrice
-            // 
-            this.txt_itemPrice.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txt_itemPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_itemPrice.Location = new System.Drawing.Point(250, 267);
-            this.txt_itemPrice.Name = "txt_itemPrice";
-            this.txt_itemPrice.Size = new System.Drawing.Size(99, 24);
-            this.txt_itemPrice.TabIndex = 13;
             // 
             // txt_inventoryNumber
             // 
@@ -218,6 +209,15 @@
             this.lbl_entryNumber.TabIndex = 0;
             this.lbl_entryNumber.Text = "Entry Number";
             // 
+            // txt_itemPrice
+            // 
+            this.txt_itemPrice.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txt_itemPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_itemPrice.Location = new System.Drawing.Point(250, 267);
+            this.txt_itemPrice.Name = "txt_itemPrice";
+            this.txt_itemPrice.Size = new System.Drawing.Size(99, 24);
+            this.txt_itemPrice.TabIndex = 13;
+            // 
             // ShopApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,7 +240,6 @@
         private System.Windows.Forms.Panel panel_main;
         private System.Windows.Forms.TextBox txt_itemName;
         private System.Windows.Forms.TextBox txt_itemCount;
-        private System.Windows.Forms.TextBox txt_itemPrice;
         private System.Windows.Forms.TextBox txt_inventoryNumber;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox txt_entryNumber;
@@ -253,6 +252,7 @@
         private System.Windows.Forms.Label lbl_inventoryNumber;
         private System.Windows.Forms.Label lbl_date;
         private System.Windows.Forms.Label lbl_entryNumber;
+        private System.Windows.Forms.TextBox txt_itemPrice;
     }
 }
 
